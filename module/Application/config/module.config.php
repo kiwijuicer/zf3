@@ -36,9 +36,14 @@ return [
             ],
         ],
     ],
+    'service_manager' => [
+        "invokables" => [
+            \Application\Authentication\AuthService::class => \Application\Authentication\AuthService::class
+        ]
+    ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
+            Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class
         ],
     ],
     'view_manager' => [
