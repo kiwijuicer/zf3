@@ -17,6 +17,7 @@ return array(
         'dsn'            => 'mysql:dbname=zf2;host=localhost',
         'driver_options' => [
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES "UTF8"',
+            PDO::ATTR_STRINGIFY_FETCHES => false
         ],
     ],
     'service_manager' => [

@@ -1,0 +1,56 @@
+2016-08-07T20:29:23+00:00 NOTICE (5): Core\Log\Exception\PhpException: Undefined property: Application\Controller\AuthenticationController::$adminUserService [E_NOTICE] in /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php:45
+Stack trace:
+#0 /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php(45): Core\Log\Logger::Core\Log\{closure}(8, 'Undefined prope...', '/home/nobby/zf2...', 45, Array)
+#1 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(78): Application\Controller\AuthenticationController->loginAction()
+#2 /home/nobby/zf2/module/Application/src/Controller/AbstractController.php(78): Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Application\Controller\AbstractController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#4 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(105): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/DispatchListener.php(119): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Application.php(332): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#10 /home/nobby/zf2/public/index.php(40): Zend\Mvc\Application->run()
+#11 {main}
+2016-08-07T20:29:23+00:00 CRIT (2): Core\Log\Exception\PhpException: Undefined property: Application\Controller\AuthenticationController::$adminUserService [E_NOTICE] in /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php:45
+Stack trace:
+#0 /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php(45): Core\Log\Logger::Core\Log\{closure}(8, 'Undefined prope...', '/home/nobby/zf2...', 45, Array)
+#1 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(78): Application\Controller\AuthenticationController->loginAction()
+#2 /home/nobby/zf2/module/Application/src/Controller/AbstractController.php(78): Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Application\Controller\AbstractController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#4 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(105): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/DispatchListener.php(119): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Application.php(332): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#10 /home/nobby/zf2/public/index.php(40): Zend\Mvc\Application->run()
+#11 {main}
+2016-08-07T20:29:55+00:00 NOTICE (5): Core\Log\Exception\PhpException: Undefined property: Application\Controller\AuthenticationController::$adminUserService [E_NOTICE] in /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php:45
+Stack trace:
+#0 /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php(45): Core\Log\Logger::Core\Log\{closure}(8, 'Undefined prope...', '/home/nobby/zf2...', 45, Array)
+#1 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(78): Application\Controller\AuthenticationController->loginAction()
+#2 /home/nobby/zf2/module/Application/src/Controller/AbstractController.php(78): Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Application\Controller\AbstractController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#4 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(105): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/DispatchListener.php(119): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Application.php(332): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#10 /home/nobby/zf2/public/index.php(40): Zend\Mvc\Application->run()
+#11 {main}
+2016-08-07T20:29:55+00:00 CRIT (2): Core\Log\Exception\PhpException: Undefined property: Application\Controller\AuthenticationController::$adminUserService [E_NOTICE] in /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php:45
+Stack trace:
+#0 /home/nobby/zf2/module/Application/src/Controller/AuthenticationController.php(45): Core\Log\Logger::Core\Log\{closure}(8, 'Undefined prope...', '/home/nobby/zf2...', 45, Array)
+#1 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php(78): Application\Controller\AuthenticationController->loginAction()
+#2 /home/nobby/zf2/module/Application/src/Controller/AbstractController.php(78): Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Application\Controller\AbstractController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#4 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(105): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/DispatchListener.php(119): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(271): Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 /home/nobby/zf2/vendor/zendframework/zend-eventmanager/src/EventManager.php(151): Zend\EventManager\EventManager->triggerListeners(Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 /home/nobby/zf2/vendor/zendframework/zend-mvc/src/Application.php(332): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#10 /home/nobby/zf2/public/index.php(40): Zend\Mvc\Application->run()
+#11 {main}

@@ -18,9 +18,24 @@ use Zend\Authentication\Result;
  */
 class AuthenticationController extends AbstractController
 {
-    public function __construct(AuthService $authService, Acl $acl)
+    /**
+     * Admin user service
+     *
+     * @var \Core\Service\AdminUserService
+     */
+    protected $adminUserService;
+
+    /**
+     * Constructor for Authentication Controller
+     *
+     * @param \Application\Authentication\AuthService $authService
+     * @param \Application\Authentication\Acl $acl
+     * @param \Core\Service\AdminUserService $adminUserService
+     */
+    public function __construct(AuthService $authService, Acl $acl, AdminUserService $adminUserService)
     {
         parent::__construct($authService, $acl);
+        $this->adminUserService = $adminUserService;
     }
 
     /**

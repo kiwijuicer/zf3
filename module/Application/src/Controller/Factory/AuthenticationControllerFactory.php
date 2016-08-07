@@ -23,7 +23,8 @@ class AuthenticationControllerFactory
     {
         return new AuthenticationController(
             $serviceManager->get(\Application\Authentication\AuthService::class),
-            $serviceManager->get(\Application\Authentication\Acl::class)
+            $serviceManager->get(\Application\Authentication\Acl::class),
+            $serviceManager->get(\Core\Service\AdminUserService::class)
         );
     }
 }
