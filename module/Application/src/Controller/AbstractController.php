@@ -5,22 +5,41 @@ namespace Application\Controller;
 
 use Application\Authentication\Acl;
 use Application\Authentication\AuthService;
-use Core\Service\AdminUserService;
-use Zend\Authentication\Adapter\Http;
+use Zend\Http\Response;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Mvc\MvcEvent;
 
+/**
+ * Abstract Controller
+ *
+ * @package Application\Controller
+ */
 class AbstractController extends AbstractActionController
 {
+    /**
+     * Authentication Service
+     *
+     * @var \Application\Authentication\AuthService
+     */
     protected $authService;
-    protected $acl;
-    protected $adminUserService;
 
-    public function __construct(AuthService $authService, Acl $acl, AdminUserService $adminUserService)
+    /**
+     * Acl
+     *
+     * @var \Application\Authentication\Acl
+     */
+    protected $acl;
+
+    /**
+     * Constructor for Abstract Controller
+     *
+     * @param \Application\Authentication\AuthService $authService
+     * @param \Application\Authentication\Acl $acl
+     */
+    public function __construct(AuthService $authService, Acl $acl)
     {
         $this->authService = $authService;
         $this->acl = $acl;
-        $this->adminUserService = $adminUserService;
     }
 
     /**
@@ -62,9 +81,9 @@ class AbstractController extends AbstractActionController
     /**
      * Redirects to login page
      *
-     * @return Ambigous <\Zend\Http\Response, \Zend\Stdlib\ResponseInterface>
+     * @return \Zend\Http\Response
      */
-    public function redirectToLogin()
+    public function redirectToLogin() : Response
     {
         $options = [];
 

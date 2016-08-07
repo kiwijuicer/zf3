@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Application\Authentication;
 
-use Application\Authentication\Adapter;
 use Core\Entity\AdminUser;
 use Core\Service\AdminUserService;
 use Zend\Authentication\AuthenticationService;
@@ -11,13 +10,16 @@ use Zend\Authentication\Storage\Session;
 use Zend\Session\Config\SessionConfig;
 use Zend\Session\Container;
 
+/**
+ * Auth Service
+ * @package Application\Authentication
+ */
 class AuthService
 {
     const SESSION_NAMESPACE = 'AdminUserAuth';
 
     /**
      * Constructor for Auth Service
-     *
      */
     public function __construct()
     {
@@ -53,6 +55,9 @@ class AuthService
         return $this->authService->hasIdentity();
     }
 
+    /**
+     * Logout
+     */
     public function logout()
     {
         $this->authService->clearIdentity();

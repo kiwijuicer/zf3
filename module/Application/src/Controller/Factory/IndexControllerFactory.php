@@ -3,17 +3,26 @@ declare(strict_types=1);
 
 namespace Application\Controller\Factory;
 
-
 use Application\Controller\IndexController;
 
+/**
+ * Index Controller Factory
+ *
+ * @package Application\Controller\Factory
+ */
 class IndexControllerFactory
 {
-    public function __invoke($serviceManager)
+    /**
+     * Returns Index Controller
+     *
+     * @param $serviceManager
+     * @return \Application\Controller\IndexController
+     */
+    public function __invoke($serviceManager) : IndexController
     {
         return new IndexController(
             $serviceManager->get(\Application\Authentication\AuthService::class),
-            $serviceManager->get(\Application\Authentication\Acl::class),
-            $serviceManager->get(\Core\Service\AdminUserService::class)
+            $serviceManager->get(\Application\Authentication\Acl::class)
         );
     }
 }

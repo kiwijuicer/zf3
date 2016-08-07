@@ -3,17 +3,54 @@ declare(strict_types = 1);
 
 namespace Core\Entity;
 
+/**
+ * Admin User
+ *
+ * @package Core\Entity
+ */
 class AdminUser extends AbstractEntity
 {
+    /**
+     * Acl role user
+     */
     const ROLE_USER = 'user';
 
+    /**
+     * Acl role admin
+     */
     const ROLE_ADMIN = 'admin';
 
+    /**
+     * The status enabled
+     */
+    const STATUS_ENABLED = 'enabled';
+
+    /**
+     * The status disabled
+     */
+    const STATUS_DISABLED = 'disabled';
+
+    /**
+     * Acl role list
+     */
     const ROLE_LIST = [
         self::ROLE_USER,
         self::ROLE_ADMIN
     ];
 
+    /**
+     * Admin user status list
+     */
+    const STATUS_LIST = [
+        self::STATUS_ENABLED,
+        self::STATUS_DISABLED
+    ];
+
+    /**
+     * Member fields
+     *
+     * @var array
+     */
     protected $fields = [
         'id' => null,
         'username' => null,
@@ -21,6 +58,7 @@ class AdminUser extends AbstractEntity
         'email' => null,
         'first_name' => null,
         'last_name' => null,
+        'role' => null,
         'status' => null,
         'updated' => null
     ];
@@ -110,6 +148,48 @@ class AdminUser extends AbstractEntity
     }
 
     /**
+     * Returns first name
+     *
+     * @return string
+     */
+    public function getFirstName() : string
+    {
+        return (string)$this->fields['first_name'];
+    }
+
+    /**
+     * Sets the first name
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setFirstName(string $value)
+    {
+        $this->fields['first_name'] = (string)$value;
+    }
+
+    /**
+     * Returns last name
+     *
+     * @return string
+     */
+    public function getLastName() : string
+    {
+        return (string)$this->fields['last_name'];
+    }
+
+    /**
+     * Sets the last name
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setLastName(string $value)
+    {
+        $this->fields['last_name'] = (string)$value;
+    }
+
+    /**
      * Returns role
      *
      * @return string
@@ -131,5 +211,29 @@ class AdminUser extends AbstractEntity
             throw new \InvalidArgumentException('Given user role (' . $value . ') is not valid');
         }
         $this->fields['username'] = (string)$value;
+    }
+
+    /**
+     * Returns status
+     *
+     * @return string
+     */
+    public function getStatus() : string
+    {
+        return (string)$this->fields['status'];
+    }
+
+    /**
+     * Sets the status
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setStatus(string $value)
+    {
+        if (!in_array($value, self::STATUS_LIST, true)) {
+            throw new \InvalidArgumentException('Given status (' . $value . ') is not valid');
+        }
+        $this->fields['status'] = (string)$value;
     }
 }

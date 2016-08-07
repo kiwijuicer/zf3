@@ -3,11 +3,26 @@ declare(strict_types = 1);
 
 namespace Core\Entity;
 
+/**
+ * AbstractEntity
+ *
+ * @package Core\Entity
+ */
 class AbstractEntity
 {
+    /**
+     * Member fields
+     *
+     * @var array
+     */
     protected $fields = [];
 
-    public function exchangeArray($data)
+    /**
+     * Hydrates the fields with the values
+     *
+     * @param array $data
+     */
+    public function exchangeArray(array $data)
     {
         foreach ($data as $field => $value) {
 
@@ -18,6 +33,11 @@ class AbstractEntity
         }
     }
 
+    /**
+     * Returns the fields
+     *
+     * @return array
+     */
     public function getFields()
     {
         return $this->fields;

@@ -18,9 +18,9 @@ use Zend\Authentication\Result;
  */
 class AuthenticationController extends AbstractController
 {
-    public function __construct(AuthService $authService, Acl $acl, AdminUserService $adminUserService)
+    public function __construct(AuthService $authService, Acl $acl)
     {
-        parent::__construct($authService, $acl, $adminUserService);
+        parent::__construct($authService, $acl);
     }
 
     /**
@@ -92,6 +92,6 @@ class AuthenticationController extends AbstractController
     {
         $this->authService->logout();
 
-        return $this->redirect()->toRoute('admin-host/login');
+        return $this->redirect()->toRoute('login');
     }
 }

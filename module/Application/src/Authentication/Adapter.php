@@ -7,6 +7,11 @@ use Core\Service\AdminUserService;
 use Zend\Authentication\Adapter\AdapterInterface;
 use Zend\Authentication\Result;
 
+/**
+ * Adapter
+ *
+ * @package Application\Authentication
+ */
 class Adapter implements AdapterInterface
 {
     /**
@@ -14,7 +19,18 @@ class Adapter implements AdapterInterface
      */
     const CHECK24_IP = '213.95.133.22';
 
+    /**
+     * Username
+     *
+     * @var string
+     */
     private $username = null;
+
+    /**
+     * Password
+     *
+     * @var string
+     */
     private $password = null;
 
     /**
@@ -41,7 +57,7 @@ class Adapter implements AdapterInterface
     /**
      * Performs an authentication attempt
      *
-     * @return \Admin\Auth\Result
+     * @return Result
      * @throws \Zend\Authentication\Adapter\Exception\ExceptionInterface
      *               If authentication cannot be performed
      */

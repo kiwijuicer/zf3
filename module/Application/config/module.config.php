@@ -9,7 +9,6 @@ namespace Application;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'router' => [
@@ -44,6 +43,18 @@ return [
                     'defaults' => [
                         'controller' => \Application\Controller\AuthenticationController::class,
                         'action'     => 'login',
+                        'auth'       => false,
+                    ],
+                ],
+            ],
+
+            'logout' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route'    => '/logout',
+                    'defaults' => [
+                        'controller' => \Application\Controller\AuthenticationController::class,
+                        'action'     => 'logout',
                         'auth'       => false,
                     ],
                 ],
