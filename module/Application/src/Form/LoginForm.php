@@ -30,19 +30,24 @@ class LoginForm extends AbstractForm
         $this->createFormElements();
     }
 
+    /**
+     * Creates the form elements
+     * 
+     * @return void
+     */
     protected function createFormElements()
     {
+        $this->setAttribute('autocomplete', 'off');
+
         $this->addElement('username', 'text', 'Benutzername', [
             'required' => true,
         ])
-            ->setAttribute('class', 'form-control')
-            ->setOptions(['twb-layout' => 'horizontal', 'column-size' => 'sm-10', 'label_attributes' => ['class' => 'col-sm-2'], 'empty_option' => '']);
+            ->setAttribute('class', 'form-control');
 
         $this->addElement('password', 'password', 'Passwort', [
             'required' => true,
         ])
-            ->setAttribute('class', 'form-control')
-            ->setOptions(['twb-layout' => 'horizontal', 'column-size' => 'sm-10', 'label_attributes' => ['class' => 'col-sm-2'], 'empty_option' => '']);
+            ->setAttribute('class', 'form-control');
 
         $this->addElement('olduri', 'hidden', 'OldUri', [
             'required' => false,
