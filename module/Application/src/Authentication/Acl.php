@@ -1,16 +1,21 @@
 <?php
-use Zend\Permissions\Acl\Acl;
-use Zend\Permissions\Acl\Role\GenericRole as Role;
-use Zend\Permissions\Acl\Resource\GenericResource as Resource;
+declare(strict_types=1);
 
-$acl = new Acl();
+namespace Application\Authentication;
 
-$acl->addRole(new Role('guest'))
-    ->addRole(new Role('member'))
-    ->addRole(new Role('admin'));
+class Acl extends \Zend\Permissions\Acl\Acl
+{
+    public function __construct()
+    {
+        // Roles
+        $this->addRole('user');
+        $this->addRole('admin', 'user');
 
-$parents = ['guest', 'member', 'admin'];
+        // Resources
+        $this->addResource(\Application\Controller\IndexController::class);
 
-$acl->addResource(new Resource(\Application\Controller\IndexController::class));
+        // Rules
+        $this->allow('user', \Application\Controller\IndexController::class);
+    }
+}
 
-$acl->allow('admin', \Application\Controller\IndexController::class);

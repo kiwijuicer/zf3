@@ -21,6 +21,7 @@ return [
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
+                        'auth'       => true,
                     ],
                 ],
             ],
@@ -31,19 +32,36 @@ return [
                     'defaults' => [
                         'controller'    => Controller\IndexController::class,
                         'action'        => 'index',
+                        'auth'       => true,
+                    ],
+                ],
+            ],
+
+            'login' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route'    => '/login',
+                    'defaults' => [
+                        'controller' => \Application\Controller\AuthenticationController::class,
+                        'action'     => 'login',
+                        'auth'       => false,
                     ],
                 ],
             ],
         ],
     ],
     'service_manager' => [
-        "invokables" => [
-            \Application\Authentication\AuthService::class => \Application\Authentication\AuthService::class
+        'factories' => [
+            \Application\Authentication\AuthService::class => \Application\Authentication\Factory\AuthServiceFactory::class,
+        ],
+        'invokables' => [
+            \Application\Authentication\Acl::class => \Application\Authentication\Acl::class
         ]
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class
+            Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class,
+            Controller\AuthenticationController::class => Controller\Factory\AuthenticationControllerFactory::class
         ],
     ],
     'view_manager' => [

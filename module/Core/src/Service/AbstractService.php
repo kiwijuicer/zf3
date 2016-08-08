@@ -11,7 +11,7 @@ class AbstractService {
     protected $tableGateway;
 
     public function __construct(TableGateway $tableGateway)
-    {echo 'haaaaaaaaaaaaaaaaaaaaaaaaallo';
+    {
         $this->tableGateway = $tableGateway;
     }
 

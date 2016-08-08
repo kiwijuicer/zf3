@@ -5,6 +5,15 @@ namespace Core\Entity;
 
 class AdminUser extends AbstractEntity
 {
+    const ROLE_USER = 'user';
+
+    const ROLE_ADMIN = 'admin';
+
+    const ROLE_LIST = [
+        self::ROLE_USER,
+        self::ROLE_ADMIN
+    ];
+
     protected $fields = [
         'id' => null,
         'username' => null,
@@ -58,4 +67,69 @@ class AdminUser extends AbstractEntity
         $this->fields['username'] = (string)$value;
     }
 
+    /**
+     * Returns password
+     *
+     * @return string
+     */
+    public function getPassword() : string
+    {
+        return (string)$this->fields['password'];
+    }
+
+    /**
+     * Sets the password
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setPassword(string $value)
+    {
+        $this->fields['password'] = (string)password_hash($value, PASSWORD_BCRYPT);
+    }
+
+    /**
+     * Returns email
+     *
+     * @return string
+     */
+    public function getEmail() : string
+    {
+        return (string)$this->fields['email'];
+    }
+
+    /**
+     * Sets the email
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setEmail(string $value)
+    {
+        $this->fields['email'] = (string)$value;
+    }
+
+    /**
+     * Returns role
+     *
+     * @return string
+     */
+    public function getRole() : string
+    {
+        return (string)$this->fields['role'];
+    }
+
+    /**
+     * Sets the role
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setRole(string $value)
+    {
+        if (!in_array($value, self::ROLE_LIST, true)) {
+            throw new \InvalidArgumentException('Given user role (' . $value . ') is not valid');
+        }
+        $this->fields['username'] = (string)$value;
+    }
 }

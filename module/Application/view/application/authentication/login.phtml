@@ -1,0 +1,39 @@
+<?php
+echo $this->headTitle('Login')->setSeparator(' - ')->setAutoEscape(false);
+?>
+
+<div class="modal-dialog">
+    <div class="modal-content">
+<?php echo $this->form(null, '')->openTag($this->form) ?>
+    <div class="modal-header">
+        <h1 class="modal-title logo-font text-center">KiwiJuicer</h1>
+        </div>
+      <div class="modal-body">
+      <?php if (!empty($this->errorMessage)) : ?>
+          <div class="alert alert-danger" role="alert"><?php echo $this->errorMessage; ?></div>
+      <?php endif; ?>
+
+<?php echo $this->formRow($this->form->get('username')) ?>
+<?php echo $this->formRow($this->form->get('password')) ?>
+<?php echo $this->formRow($this->form->get('olduri')) ?>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-lg btn-block btn-primary">Login</button>
+      </div>
+<?php echo $this->form(null, '')->closeTag() ?>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+
+<script>
+<?php $this->inlineScript()->captureStart(); ?>
+
+$(function() {
+	$('#login_username').focus();
+});
+
+<?php $this->inlineScript()->captureEnd(); ?>
+</script>
+
+

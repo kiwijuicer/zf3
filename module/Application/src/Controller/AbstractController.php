@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Application\Controller;
 
+use Application\Authentication\Acl;
 use Application\Authentication\AuthService;
 use Core\Service\AdminUserService;
 use Zend\Authentication\Adapter\Http;
@@ -12,11 +13,13 @@ use Zend\Mvc\MvcEvent;
 class AbstractController extends AbstractActionController
 {
     protected $authService;
+    protected $acl;
     protected $adminUserService;
 
-    public function __construct(AuthService $authService, AdminUserService $adminUserService)
+    public function __construct(AuthService $authService, Acl $acl, AdminUserService $adminUserService)
     {
         $this->authService = $authService;
+        $this->acl = $acl;
         $this->adminUserService = $adminUserService;
     }
 
@@ -29,41 +32,46 @@ class AbstractController extends AbstractActionController
      */
     public function onDispatch(MvcEvent $e)
     {
-        $routeMatch = $e->getRouteMatch();
-        if (!$routeMatch) {
-            throw new \DomainException('Missing route matches; unsure how to retrieve action');
+        $match = $e->getRouteMatch();
+        $auth = $match->getParam('auth', true);
+
+        if ($auth === true) {
+
+            if (!$this->authService->hasUser())  {
+                return $this->redirectToLogin();
+            } else {
+
+                $controller = $match->getParam('controller');
+                $action = $match->getParam('action');
+
+                if (!$this->acl->hasResource($controller) || !$this->acl->isAllowed($this->authService->getSchema(), $controller, $action)) {
+
+                    $action_response = $this->noAccessAction();
+                    $e->setResult($action_response);
+
+                    return $action_response;
+                }
+
+            }
+
         }
 
-        $action = $routeMatch->getParam('action', 'not-found');
-        $method = static::getMethodFromAction($action);
-
-        if (!method_exists($this, $method)) {
-            $method = 'notFoundAction';
-        }
-
-        $this->authenticate();
-
-//        if (! $this->authService->hasIdentity()) {
-//            return $this->redirect()->toRoute('login');
-//        }
-
-        $actionResponse = $this->$method();
-
-        $e->setResult($actionResponse);
-
-        return $actionResponse;
+        return parent::onDispatch($e);
     }
 
-    protected function authenticate()
+    /**
+     * Redirects to login page
+     *
+     * @return Ambigous <\Zend\Http\Response, \Zend\Stdlib\ResponseInterface>
+     */
+    public function redirectToLogin()
     {
-        $config = array(
-            'accept_schemes' => 'basic',
-            'realm'          => 'KiwiJuicer',
-            'nonce_timeout'  => 3600,
-        );
+        $options = [];
 
-        $httpAuth = new Http($config);
+        if ('/' !== $_SERVER['REQUEST_URI']) {
+            $options['query'] = ['olduri' => $_SERVER['REQUEST_URI']];
+        }
 
-
+        return $this->redirect()->toRoute('login', [], $options);
     }
 }

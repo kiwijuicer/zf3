@@ -7,16 +7,16 @@
 
 namespace Application\Controller;
 
+use Application\Authentication\Acl;
 use Application\Authentication\AuthService;
 use Core\Service\AdminUserService;
-use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractController
 {
-    public function __construct(AuthService $authService, AdminUserService $adminUserService)
+    public function __construct(AuthService $authService, Acl $acl, AdminUserService $adminUserService)
     {
-        parent::__construct($authService, $adminUserService);
+        parent::__construct($authService, $acl, $adminUserService);
     }
 
     public function indexAction()
