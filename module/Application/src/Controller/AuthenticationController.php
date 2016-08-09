@@ -13,7 +13,6 @@ use Zend\Authentication\Result;
  * AuthenticationController
  *
  * @package Admin\Controller
- * @author Norbert Hanauer <norbert.hanauer@check24.de>
  * @copyright CHECK24 Vergleichsportal GmbH
  */
 class AuthenticationController extends AbstractController

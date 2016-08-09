@@ -12,8 +12,6 @@ use Zend\Log\Logger;
  * The config gets set in the onBootstrap
  *
  * @package Base\Log
- * @author Norbert Hanauer <norbert.hanauer@check24.de>
- * @copyright CHECK24 Vergleichsportal GmbH
  */
 class Logging {
 

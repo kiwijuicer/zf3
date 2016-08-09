@@ -13,8 +13,6 @@ use Zend\InputFilter\InputProviderInterface;
  * Abstract form to handle easier form creation
  *
  * @package Base\Form
- * @author Moritz Mertinkat <moritz.mertinkat@check24.de>
- * @copyright CHECK24 Vergleichsportal GmbH
  */
 class AbstractForm extends Form
 {

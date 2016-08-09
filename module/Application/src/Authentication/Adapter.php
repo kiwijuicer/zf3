@@ -15,11 +15,6 @@ use Zend\Authentication\Result;
 class Adapter implements AdapterInterface
 {
     /**
-     * The static ip address of CHECK24
-     */
-    const CHECK24_IP = '213.95.133.22';
-
-    /**
      * Username
      *
      * @var string
