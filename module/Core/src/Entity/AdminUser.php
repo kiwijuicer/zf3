@@ -60,6 +60,9 @@ class AdminUser extends AbstractEntity
         'last_name' => null,
         'role' => null,
         'status' => null,
+        'fb_id' => null,
+        'fb_token' => null,
+        'fb_is_active' => null,
         'updated' => null
     ];
 
@@ -210,7 +213,7 @@ class AdminUser extends AbstractEntity
         if (!in_array($value, self::ROLE_LIST, true)) {
             throw new \InvalidArgumentException('Given user role (' . $value . ') is not valid');
         }
-        $this->fields['username'] = (string)$value;
+        $this->fields['role'] = (string)$value;
     }
 
     /**
@@ -235,5 +238,65 @@ class AdminUser extends AbstractEntity
             throw new \InvalidArgumentException('Given status (' . $value . ') is not valid');
         }
         $this->fields['status'] = (string)$value;
+    }
+
+    /**
+     * Set is active
+     *
+     * @param bool $value
+     */
+    public function setFbIsActive(bool $value)
+    {
+        $this->fields['fb_is_active'] = (int)$value;
+    }
+
+    /**
+     * Returns if is active
+     *
+     * @return bool
+     */
+    public function isFbActive()
+    {
+        return $this->fields['fb_is_active'] === 1;
+    }
+
+    /**
+     * Sets facebook token
+     *
+     * @param string $value
+     */
+    public function setFbToken(string $value)
+    {
+        $this->fields['fb_token'] = $value;
+    }
+
+    /**
+     * Returns the facebook token
+     *
+     * @return string
+     */
+    public function getFbToken() : string
+    {
+        return $this->fields['fb_token'];
+    }
+
+    /**
+     * Set facebook id
+     *
+     * @param int $value
+     */
+    public function setFbId(int $value)
+    {
+        $this->fields['fb_id'] = $value;
+    }
+
+    /**
+     * Returns the facebook id
+     *
+     * @return int|null
+     */
+    public function getFbId()
+    {
+        return $this->fields['fb_id'];
     }
 }

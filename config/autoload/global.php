@@ -25,4 +25,9 @@ return array(
             \Zend\Db\Adapter\Adapter::class => \Zend\Db\Adapter\AdapterServiceFactory::class,
         ],
     ],
+
+    'facebook' => [
+        'app_id' => '1094133154063743',
+        'app_secret' => '2c74224bc9906fa84e10d76b16a5644a',
+    ],
 );

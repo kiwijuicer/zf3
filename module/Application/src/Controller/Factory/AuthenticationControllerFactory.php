@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Application\Controller\Factory;
 
 use Application\Controller\AuthenticationController;
+use Zend\Config\Config;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
@@ -24,7 +25,8 @@ class AuthenticationControllerFactory
         return new AuthenticationController(
             $serviceManager->get(\Application\Authentication\AuthService::class),
             $serviceManager->get(\Application\Authentication\Acl::class),
-            $serviceManager->get(\Core\Service\AdminUserService::class)
+            $serviceManager->get(\Core\Service\AdminUserService::class),
+            new Config($serviceManager->get('Config'))
         );
     }
 }

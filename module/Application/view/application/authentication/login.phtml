@@ -22,6 +22,8 @@ echo $this->headTitle('Login')->setSeparator(' - ')->setAutoEscape(false);
         <button type="submit" class="btn btn-lg btn-block btn-primary">Login</button>
       </div>
 <?php echo $this->form(null, '')->closeTag() ?>
+
+        <p class="text-center"><a class="btn btn-lg btn-primary" href="https://www.facebook.com/v2.9/dialog/oauth?client_id=1094133154063743&redirect_uri=http://dev.norbert.nh/facebook-login&scope=public_profile,email">OR login with Facebook</a></p>
       </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 

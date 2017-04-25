@@ -48,6 +48,30 @@ return [
                 ],
             ],
 
+            'facebook-login' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route'    => '/facebook-login',
+                    'defaults' => [
+                        'controller' => \Application\Controller\AuthenticationController::class,
+                        'action'     => 'facebook-login',
+                        'auth'       => false,
+                    ],
+                ],
+            ],
+
+            'facebook-remove' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route'    => '/facebook-remove',
+                    'defaults' => [
+                        'controller' => \Application\Controller\AuthenticationController::class,
+                        'action'     => 'facebook-remove',
+                        'auth'       => false,
+                    ],
+                ],
+            ],
+
             'logout' => [
                 'type' => Segment::class,
                 'options' => [

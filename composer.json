@@ -23,7 +23,8 @@
         "zendframework/zend-session": "2.7.*",
         "zendframework/zend-i18n": "2.7.*",
         "zendframework/zend-log": "2.9.*",
-        "zendframework/zend-view": "2.8.*"
+        "zendframework/zend-view": "2.8.*",
+        "facebook/graph-sdk": "5.5.*"
     },
     "autoload": {
         "psr-4": {
