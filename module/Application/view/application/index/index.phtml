@@ -1,0 +1,20 @@
+<?php
+$user = $this->user;
+/** @var \Core\Entity\AdminUser $user */
+?>
+
+<?php if ($user->getFbId() !== null) : ?>
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <img src="<?= $user->getFbPictureUrl() ?>" width="150" />
+
+        <strong><?= $user->getFirstName() . ' ' . $user->getLastName() ?></strong>
+
+    </div>
+
+</div>
+
+<?php endif; ?>

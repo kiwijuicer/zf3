@@ -142,6 +142,7 @@ class AuthenticationController extends AbstractController
 
             $user->setFbIsActive(true);
             $user->setFbToken($response->getAccessToken());
+            $user->setFbPictureUrl($response->getGraphUser()->getPicture()->getUrl());
             $user->setFirstName($response->getGraphUser()->getFirstName());
             $user->setLastName($response->getGraphUser()->getLastName());
 

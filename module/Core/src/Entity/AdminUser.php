@@ -62,6 +62,7 @@ class AdminUser extends AbstractEntity
         'status' => null,
         'fb_id' => null,
         'fb_token' => null,
+        'fb_picture_url' => null,
         'fb_is_active' => null,
         'updated' => null
     ];
@@ -298,5 +299,25 @@ class AdminUser extends AbstractEntity
     public function getFbId()
     {
         return $this->fields['fb_id'];
+    }
+
+    /**
+     * Sets facebook picture url
+     *
+     * @param string $value
+     */
+    public function setFbPictureUrl(string $value)
+    {
+        $this->fields['fb_picture_url'] = $value;
+    }
+
+    /**
+     * Returns facebook picture url
+     * 
+     * @return string|null
+     */
+    public function getFbPictureUrl()
+    {
+        return $this->fields['fb_picture_url'];
     }
 }
